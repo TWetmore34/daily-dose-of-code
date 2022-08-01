@@ -1,0 +1,58 @@
+:root {
+    --challenge-height: 75px;
+    --challenge-inner-height: 74px;
+}
+
+/* class selector */
+
+.challenge {
+    display: flex;
+    height: var(--challenge-height);
+    width: auto;
+    vertical-align: middle;
+}
+
+.date {
+    box-sizing: border-box;
+    display: flex;
+    height: var(--challenge-inner-height);
+    width: 15%;
+    border: 1px solid black;
+    justify-content: center;
+}
+
+.challenge-title {
+    height: var(--challenge-inner-height);
+    width: 65%;
+    display: inline-block;
+    border: black solid 1px;
+}
+
+.progress {
+    height: var(--challenge-inner-height);
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    border: 1px black solid;
+}
+
+.profile {
+    margin-left: auto;
+    margin-right: 8%;
+}
+
+.logo {
+    margin-right: auto;
+    margin-left: 1%;
+}
+
+.header {
+    height: 50px;
+    border-bottom: 1px black solid;
+    margin: 1%;
+}
+
+.daily {
+    border: 1px solid black;
+}
