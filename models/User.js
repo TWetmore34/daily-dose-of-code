@@ -59,7 +59,7 @@ User.init(
                 const newPass = await bcrypt.hash(newUserData.password, 8);
                 newUserData.password = newPass;
                 return newPass;
-            }
+            },
         },
       sequelize,
       freezeTableName: true,

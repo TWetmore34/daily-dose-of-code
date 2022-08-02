@@ -23,7 +23,7 @@ Trial.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        submission_details: {
+        submission_detail: {
             type: DataTypes.STRING,
             allowNull: false,
         }, 

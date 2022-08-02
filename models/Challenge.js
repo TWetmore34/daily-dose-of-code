@@ -19,7 +19,7 @@ Challenge.init(
     },
 
 
-    problem: {
+    detail: {
       type: DataTypes.STRING,
       allowNull: false,
     },

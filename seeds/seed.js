@@ -11,12 +11,11 @@ const seedDatabase = async () => {
 
     await User.bulkCreate(userData);
 
+    await Difficulty.bulkCreate(difficultyData);
+
     await Challenge.bulkCreate(challengeData);
 
     await Trial.bulkCreate(trialData);
-
-    await Difficulty.bulkCreate(difficultyData);
-
 }
 
 seedDatabase();
