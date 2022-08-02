@@ -1,9 +1,7 @@
-const { appendFile } = require('fs');
-
 const router = require('express').Router();
 
-router.get('/home', async (req, res) => {
-    res.json({ msg: 'testing' })
-});
+router.get('/', (req, res)=> {
+    res.render('challenges', {layout: 'main'})
+})
 
 module.exports = router;

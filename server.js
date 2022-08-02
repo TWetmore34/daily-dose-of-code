@@ -19,16 +19,6 @@ app.set('view engine', 'handlebars');
 
 app.use(routes)
 
-app.get('/login', (req, res)=> {
-    res.render('login', {layout: 'main'})
-})
-app.get('/challenges', (req, res)=> {
-    res.render('challenges', {layout: 'main'})
-})
-app.get('/profile', (req, res)=> {
-    res.render('profile', {layout: 'main'})
-})
-
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`)
 });
