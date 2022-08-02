@@ -8,4 +8,4 @@ const Challenge = require('./Challenge')
 
 
 // add additional models for export inside the curly braces
-module.exports = { User, Email, Difficulty }
+module.exports = { User, Email, Difficulty, Challenge }
