@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Email extends Model {}
+class Challenge extends Model {}
 
-Email.init(
+Challenge.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,41 +12,40 @@ Email.init(
       autoIncrement: true,
     },
 
-    subject: {
+
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-    codeproblem: {
+
+    problem: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+
+    tests: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+
+    difficulty_id: {
       type: DataTypes.STRING,
       allowNull: false,
       references: {
-        model: 'Challenge',  /* codeproblem table goes here */
+        model: 'Difficulty',  /* codeproblem table goes here */
         key: 'id',
     },
 
-    bodytemplate: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-
-    recipientemail: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-
-    senderemail: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-
-  },
+  
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Email',
+    modelName: 'Challenge',
   }
 );
 
-module.exports = Email;
+module.exports = Challenge;
