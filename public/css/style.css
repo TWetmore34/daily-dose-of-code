@@ -60,12 +60,12 @@
 .login-title{
     width: 100%;
     font-family: 'Roboto Mono', sans-serif;
-    background-color: white;
-    color:rgb(215, 212, 212);
+    background-color: rgb(155, 55, 206);
+    color:rgb(243, 236, 236);
     display:flex;
     justify-content: center;
     align-items: center;
-    font-size: 75px;
+    font-size: 100px;
     background-image: url("");
     /* padding-left: 15px;
     padding-right: 15px;
@@ -84,10 +84,8 @@
     text-align: center;
 }
 
-
-
 .body-bg {
-    background-color: rgba(140, 110, 149, 0.481);
+    background-color: rgb(250, 247, 251);
 }
 
 .cards-container {
@@ -101,6 +99,17 @@
     background-color: rgb(215, 212, 212);
     border-radius: 5px 5px 5px 5px;
    } 
+
+.login-cards {
+    border-style: solid;
+    border-color: rgb(215, 212, 212);
+    border-width: 10px;
+    border-radius: 4px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
 
 .login-btn-color {
     background-color: rgb(99, 173, 242);
