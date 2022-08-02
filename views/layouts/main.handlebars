@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    {{{body}}}    
+    <header>
+        <h1>Welcome to the Code Challenge</h1>
+    </header>
+    <nav>
+        <a href="/">Home</a>
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+    </nav>
+    <main>
+        {{{body}}} 
+    </main>
 </body>
 </html>
