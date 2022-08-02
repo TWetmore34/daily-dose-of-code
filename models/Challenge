@@ -38,8 +38,8 @@ Challenge.init(
         model: 'Difficulty',  /* codeproblem table goes here */
         key: 'id',
     },
-
-  
+  },
+  },
   {
     sequelize,
     freezeTableName: true,
