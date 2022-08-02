@@ -12,17 +12,20 @@ Email.init(
       autoIncrement: true,
     },
 
+
     subject: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
+
     codeproblem: {
       type: DataTypes.STRING,
       allowNull: false,
       references: {
-        model: 'Challenge',  /* codeproblem table goes here */
+        model: 'Challenge',
         key: 'id',
+      }
     },
 
     bodytemplate: {
@@ -41,6 +44,8 @@ Email.init(
     },
 
   },
+
+
   {
     sequelize,
     freezeTableName: true,
