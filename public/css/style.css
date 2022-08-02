@@ -58,17 +58,19 @@
 }
 
 .login-title{
+    width: 100%;
     font-family: 'Roboto Mono', sans-serif;
+    background-color: white;
     color:rgb(215, 212, 212);
     display:flex;
     justify-content: center;
     align-items: center;
     font-size: 75px;
     background-image: url("");
-    padding-left: 15px;
+    /* padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 15px; */
     border-bottom: solid;
     border-top: solid;
     border-color: rgb(215, 212, 212);
@@ -82,11 +84,28 @@
     text-align: center;
 }
 
-.login-cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
+
+
+.body-bg {
+    background-color: rgba(140, 110, 149, 0.481);
 }
+
+.cards-container {
+    display: flex;
+}
+
+.vertical-row {
+    Float:left;
+    height:100;
+    width:25px;
+    background-color: rgb(215, 212, 212);
+    border-radius: 5px 5px 5px 5px;
+   } 
+
+.login-btn-color {
+    background-color: rgb(99, 173, 242);
+   }
+
+.signup-btn-color {
+    background-color: rgb(20, 174, 69);
+   }
