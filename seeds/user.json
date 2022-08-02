@@ -2,26 +2,26 @@
     {
         "email": "TWetmore34@github.com",
         "password": "Twetmore34",
-        "fullname": "Thomas Wetmore"
+        "username": "Thomas Wetmore"
     },
     {
         "email": "mmtaylor@github.com",
         "password": "mmtaylor",
-        "fullname": "Mary Taylor"
+        "username": "Mary Taylor"
     },
     {
         "email": "soulbrother47@github.com",
         "password": "soulbrother47",
-        "fullname": "John Rives"
+        "username": "John Rives"
     },
     {
         "email": "kbjss071@github.com",
         "password": "kbjss071",
-        "fullname": "Jin Kang"
+        "username": "Jin Kang"
     },
     {
         "email": "JohnDoe@gmail.com",
         "password": "JohnDoe",
-        "fullname": "John Doe"
+        "username": "John Doe"
     }
 ]
