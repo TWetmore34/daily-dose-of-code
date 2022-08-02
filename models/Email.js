@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Painting extends Model {}
+class Email extends Model {}
 
-Painting.init(
+Email.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,40 +11,44 @@ Painting.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+
+
+    subject: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    artist: {
+
+
+    codeproblem: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    exhibition_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    filename: {
+
+
+    bodytemplate: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+
+
+    recipientemail: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    gallery_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'gallery',
-        key: 'id',
-      },
+
+
+    senderemail: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-  },
+
+  
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'painting',
+    modelName: 'Email',
   }
 );
 
-module.exports = Painting;
+module.exports = Email;
