@@ -39,15 +39,10 @@ Challenge.init(
         key: 'id',
       }
     },
-<<<<<<< HEAD:models/Challenge.js
 
  },
 
  
-=======
-  },
-  },
->>>>>>> c8df276a841d4db7ae35bd4b691451c1aaedeaee:models/Challenge
   {
     sequelize,
     freezeTableName: true,
