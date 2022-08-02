@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const bcrypt = require('bcryptjs');;
+const bcrypt = require('bcrypt');;
 
 class User extends Model {}
 
@@ -37,11 +37,19 @@ User.init(
       },
     //   stores the id's of attempted challenges
       attemped: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        // references: {
+        //     model: 'challenge',
+        //     key: 'id'
+        // }
       },
     //   stores the id's of completed challenges
       passed: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        // references: {
+        //     model: 'challenge',
+        //     key: 'id'
+        // }
       }
     },
     {
@@ -56,7 +64,7 @@ User.init(
       sequelize,
       freezeTableName: true,
       underscored: true,
-      modelName: 'gallery',
+      modelName: 'user',
     }
   );
   
