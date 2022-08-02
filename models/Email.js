@@ -23,7 +23,7 @@ Email.init(
       type: DataTypes.STRING,
       allowNull: false,
       references: {
-        model: 'Codeproblem',  /* codeproblem table goes here */
+        model: 'Challenge',  /* codeproblem table goes here */
         key: 'id',
     },
 
