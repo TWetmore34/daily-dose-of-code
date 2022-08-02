@@ -12,37 +12,32 @@ Email.init(
       autoIncrement: true,
     },
 
-
     subject: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
 
     codeproblem: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-
     bodytemplate: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
 
     recipientemail: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-
     senderemail: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-  
+  },
   {
     sequelize,
     freezeTableName: true,

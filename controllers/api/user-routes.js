@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
 })
 
 // create new user
+// /api/user
 router.post('/', async (req, res) => {
     try {
     const newUser = await {
@@ -27,6 +28,7 @@ router.post('/', async (req, res) => {
 });
 
 // login
+// /api/users/login
 router.post('/login', async (req, res) => {
     const userData = await User.findOne({
         where: {
@@ -37,7 +39,6 @@ router.post('/login', async (req, res) => {
         res.status(400).json({ msg: 'Incorrect email or password' });
         return
     }
-    // add check for email w bcrypt .compare()
     // if true, create session obj and login
     // false, failure msg
     const compare = await bcrypt.compare(req.body.password, userData.password);
