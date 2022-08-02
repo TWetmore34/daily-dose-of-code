@@ -56,3 +56,37 @@
 .daily {
     border: 1px solid black;
 }
+
+.login-title{
+    font-family: 'Roboto Mono', sans-serif;
+    color:rgb(215, 212, 212);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    background-image: url("");
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: rgb(215, 212, 212);
+    border-width: 10px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}

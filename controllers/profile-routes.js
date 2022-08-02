@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-router.get('/:id', async (req, res) => {
-    res.json({ msg: `profile ${req.params.id} route` })
-});
+router.get('/', (req, res)=> {
+    res.render('profile', {layout: 'main'})
+})
 
 module.exports = router;
