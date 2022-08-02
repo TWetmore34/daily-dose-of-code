@@ -39,5 +39,13 @@ User.hasMany(Trial, {
     foreignKey: 'user_id'
 });
 
+Trial.hasOne(Challenge, {
+    foreignKey: 'challenge_id'
+});
+
+Challenge.hasMany(Trial, {
+    foreignKey: 'challenge_id'
+})
+
 // add additional models for export inside the curly braces
 module.exports = { User, Email, Difficulty, Challenge, Trial }

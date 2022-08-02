@@ -3,7 +3,8 @@
         "title": "Two Sum",
         "detail": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
         "difficulty_id": 1,
-        "tests": "add test cases here"
+        "tests": "add test cases here",
+        "date": ""
     },
     {
         "title": "Add Two Numbers",

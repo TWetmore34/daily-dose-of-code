@@ -9,11 +9,11 @@ const difficultyData = require('./difficulty.json')
 const seedDatabase = async () => {
     await sequelize.sync({force: true});
 
-    await User.bulkCreate(userData);
-
     await Difficulty.bulkCreate(difficultyData);
 
     await Challenge.bulkCreate(challengeData);
+
+    await User.bulkCreate(userData);
 
     await Trial.bulkCreate(trialData);
 }

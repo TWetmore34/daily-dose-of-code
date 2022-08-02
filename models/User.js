@@ -38,18 +38,18 @@ User.init(
     //   stores the id's of attempted challenges
       attemped: {
         type: DataTypes.INTEGER,
-        // references: {
-        //     model: 'challenge',
-        //     key: 'id'
-        // }
+        references: {
+            model: 'challenge',
+            key: 'id'
+        }
       },
     //   stores the id's of completed challenges
       passed: {
         type: DataTypes.INTEGER,
-        // references: {
-        //     model: 'challenge',
-        //     key: 'id'
-        // }
+        references: {
+            model: 'challenge',
+            key: 'id'
+        }
       }
     },
     {
