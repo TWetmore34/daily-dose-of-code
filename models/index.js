@@ -1,7 +1,7 @@
 const User = require('./User');
-const Email = require('./Email');
 const Difficulty = require('./Difficulty')
 const Challenge = require('./Challenge')
+const Email = require('./Email');
 
 // user will have many challenges that reference the foregin keys completed and attempted
 
