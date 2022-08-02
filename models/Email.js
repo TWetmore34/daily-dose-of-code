@@ -22,10 +22,9 @@ Email.init(
     codeproblem: {
       type: DataTypes.STRING,
       allowNull: false,
-      User INT,
-      FOREIGN KEY (User)
-      REFERENCES User(id)
-      ON DELETE SET NULL
+      references: {
+        model: 'User',
+        key: 'id',
     },
 
 
