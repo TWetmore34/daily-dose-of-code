@@ -1,0 +1,7 @@
+<div class="display-flex flex-row header">
+    <button class="login" onClick="loginFunction">Login</button>
+</div>
+
+fetch('http://localhost:3001/login')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
