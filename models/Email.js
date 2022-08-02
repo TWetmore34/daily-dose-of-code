@@ -42,7 +42,6 @@ Email.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-  }
   },
 
 
