@@ -1,11 +1,11 @@
 [
     {
-        "difficulty": "Easy"
+        "level": "Easy"
     },
     {
-        "difficulty": "Medium"
+        "level": "Medium"
     },
     {
-        "difficulty": "Hard"
+        "level": "Hard"
     }
 ]
