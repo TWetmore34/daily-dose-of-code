@@ -96,7 +96,7 @@
 
 .vertical-row {
     Float:left;
-    height:100;
+    height:100vh;
     width:25px;
     background-color: rgb(215, 212, 212);
     border-radius: 5px 5px 5px 5px;
