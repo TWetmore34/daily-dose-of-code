@@ -1,9 +1,8 @@
-const { appendFile } = require('fs');
-
 const router = require('express').Router();
 
-router.get('/', async (req, res) => {
-    res.json({ msg: 'login rotue' })
-});
+// add a redirect to /home if the user is still logged in
+router.get('/', (req, res)=> {
+    res.render('login', {layout: 'main'})
+})
 
 module.exports = router;
