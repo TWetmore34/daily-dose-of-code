@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Email extends Model {}
+class Codeproblem extends Model {}
 
 Email.init(
   {
@@ -23,7 +23,7 @@ Email.init(
       type: DataTypes.STRING,
       allowNull: false,
       references: {
-        model: 'Codeproblem',  /* codeproblem table goes here */
+        model: 'User',  /* codeproblem table goes here */
         key: 'id',
     },
 
@@ -50,8 +50,8 @@ Email.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Email',
+    modelName: 'Codeproblem',
   }
 );
 
-module.exports = Email;
+module.exports = Codeproblem;
