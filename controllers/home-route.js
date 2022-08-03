@@ -8,6 +8,7 @@ const { loginAuth } = require('../utils/login-check');
 // should remove the need for the attempted categories from User
 // if yes, We make a custom hbs helper that checks the value of challenge.Trials.status => if true, return 'completed', false return 'in progress, null returm 'not attempted'
 router.get('/', async (req, res)=> {
+    try {
     const challengeData = await Challenge.findAll({
         include: [{ model: Difficulty }, { model: Trial, 
             // should grab only the users trials
@@ -21,13 +22,25 @@ router.get('/', async (req, res)=> {
     const challenges = await challengeData.map(user => user.get({ plain: true }))
     console.log(req.session)
     res.render('challenges', { challenges })
+}
+catch (err) {
+    res.status(500).json(err)
+}
 });
 
 router.get('/:id', async (req, res) => {
+    try {
+        console.log(req.session)
+    // finds requested challenge id
     const challengeData = await Challenge.findByPk(req.params.id);
+    // serializes data
     const challenge = challengeData.get({ plain: true });
 
     res.render('trial', { challenge })
+    }
+    catch (err) {
+        res.status(500).json(err)
+    }
 })
 
 module.exports = router;

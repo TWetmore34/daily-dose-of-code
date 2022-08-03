@@ -25,7 +25,6 @@ Challenge.init(
       allowNull: false,
     },
 
-
     tests: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -40,9 +39,22 @@ Challenge.init(
       }
     },
 
+
+    starting_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+
+    
+
+    ending_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+
  },
 
- 
   {
     sequelize,
     freezeTableName: true,

@@ -1,5 +1,13 @@
 const router = require('express').Router();
-// const { User } = require('../../models');
+const { User } = require('../../models');
+const bcrypt = require('bcrypt');
+
+router.get('/', async (req, res) => {
+    let userData = await User.findAll();
+    let users = userData.map(user => user.get({ plain: true }));
+
+    res.json(users)
+})
 
 // create new user
 router.post('/', async (req, res) => {
@@ -9,9 +17,16 @@ router.post('/', async (req, res) => {
         name: req.body.name,
         password: req.body.password
     }
-    // uncomment line below me once models are set up
-    // const createMe = await User.create(newUser)
-    res.status(201).json({ msg: newUser })
+
+    const createMe = await User.create(newUser)
+    if(createMe) {
+        req.session.save(() => {
+            req.session.user_id = createMe.id
+            req.session.logged_in = true
+
+            res.status(201).json({ msg: createMe })
+        })
+    }
     }
     catch (err) {
         res.status(500).json(err)

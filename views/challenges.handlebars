@@ -8,7 +8,9 @@
         {{#each challenges as |challenge|}}
         <div class="challenge">
             <div class="date">Date of Challenge</div>
-            <div class="challenge-title">{{challenge.title}}</div>
+            <div class="challenge-title">
+                <a href="/home/{{challenge.id}}">{{challenge.title}}</a>
+            </div>
             <div class="progress">In Progress</div>
         </div>
         {{/each}}
