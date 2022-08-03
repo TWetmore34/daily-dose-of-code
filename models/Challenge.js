@@ -25,7 +25,6 @@ Challenge.init(
       allowNull: false,
     },
 
-
     tests: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -42,7 +41,6 @@ Challenge.init(
 
  },
 
- 
   {
     sequelize,
     freezeTableName: true,

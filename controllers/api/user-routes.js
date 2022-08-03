@@ -3,7 +3,6 @@ const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
-    console.log(req.session)
     let userData = await User.findAll();
     let users = userData.map(user => user.get({ plain: true }));
 
@@ -25,9 +24,8 @@ router.post('/', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = createMe.id
             req.session.logged_in = true
-            console.log(req.session)
-            res.status(201).json({ msg: createMe })
 
+            res.status(201).json({ msg: createMe })
         })
     }
     }
