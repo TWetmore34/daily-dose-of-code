@@ -17,7 +17,7 @@ Difficulty.init(
             allowNull: false
         }
     },
-     
+      
     {
         sequelize,
         freezeTableName: true,

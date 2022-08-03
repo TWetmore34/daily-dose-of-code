@@ -38,18 +38,18 @@ User.init(
     //   stores the id's of attempted challenges
       attemped: {
         type: DataTypes.INTEGER,
-        // references: {
-        //     model: 'challenge',
-        //     key: 'id'
-        // }
+        references: {
+            model: 'challenge',
+            key: 'id'
+        }
       },
     //   stores the id's of completed challenges
       passed: {
         type: DataTypes.INTEGER,
-        // references: {
-        //     model: 'challenge',
-        //     key: 'id'
-        // }
+        references: {
+            model: 'challenge',
+            key: 'id'
+        }
       }
     },
     {
@@ -59,7 +59,7 @@ User.init(
                 const newPass = await bcrypt.hash(newUserData.password, 8);
                 newUserData.password = newPass;
                 return newPass;
-            }
+            },
         },
       sequelize,
       freezeTableName: true,

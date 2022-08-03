@@ -1,3 +1,4 @@
+const { NOW } = require('sequelize');
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -19,7 +20,7 @@ Challenge.init(
     },
 
 
-    problem: {
+    detail: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -29,7 +30,6 @@ Challenge.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
 
     difficulty_id: {
       type: DataTypes.INTEGER,

@@ -19,7 +19,7 @@ Email.init(
     },
 
 
-    codeproblem: {
+    codeProblem: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -28,17 +28,17 @@ Email.init(
       }
     },
 
-    bodytemplate: {
+    bodyTemplate: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-    recipientemail: {
+    recipientEmail: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-    senderemail: {
+    senderEmail: {
       type: DataTypes.STRING,
       allowNull: false,
     },
