@@ -5,22 +5,27 @@
 <div class="profile-container">
   <div class="row">
 
-    <div class="col-4" style="border:1px solid rgb(132, 127, 127);">
+    <div class="col-4 profile-container">
       <div class="profile-card">
-        <img src="" alt="" />
+        <img
+          src="../public/imgs/head-shot.png"
+          alt="Profile Image"
+          class="profile-img"
+        />
+        <div class="profile-username">{{user.username}}</div>
+        <div class="profile-email">{{user.email}}</div>
+        <div class="profile-streak">
+          <span class="material-symbols-outlined">
+            browse_activity
+          </span>700 Log Ins
+        </div>
 
       </div>
     </div>
 
-    <div
-      class="col-4"
-      style="border:1px solid rgb(132, 127, 127);"
-    >Profile</div>
+    <div class="col-4 profile-container">Profile</div>
 
-    <div
-      class="col-4"
-      style="border:1px solid rgb(132, 127, 127);"
-    >Profile</div>
+    <div class="col-4 profile-container">Profile</div>
 
   </div>
 </div>
