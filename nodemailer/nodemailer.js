@@ -1,6 +1,5 @@
 "use strict";
 const nodemailer = require("nodemailer");
-const { FORCE } = require("sequelize/types/index-hints");
 const { User, Challenge } = require('../models')
 
 async function main() {
@@ -27,19 +26,27 @@ async function main() {
   }
 
 //   gets challenge info for email template
-  let challenges = await Challenge.findAll() // eventually, well add a where clause to this that searches by today's date
-  let challengeData = await challenges.map(challenge => challenge.get({ plain: true }))
-  console.log(challengeData)
-  for(let i=0;i<challengeData.length;i++){
-    
+  let challenges = await Challenge.findByPk(1) // eventually, well add a where clause to this that searches by today's date
+  let challenge = challenges.get({ plain: true })
+  let difficulty = ''
+  if(challenge.difficulty_id === 1){
+    difficulty = 'an easy'
+  } else if (challenge.difficulty_id === 2){
+    difficulty = 'a medium'
+  } else {
+    difficulty = 'a hard'
   }
+
 
   let info = await transporter.sendMail({
     from: '"dailyDoseOfCode@welove2Code.com', // sender address
     to: userEmails, // list of receivers
     subject: "Time for your daily challenge!", // Subject line
     text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
+    // be sure to change anchor element once weve deployed to heroku!!
+    html: `<b>Are you ready for todays challenge? It's ${difficulty} one!</b>
+    <p>Get the link <a href='http://localhost:3306/home/${challenge.id}'>here</a>!</p>
+    `, // html body
   });
 
   console.log("Message sent: %s", info.messageId);

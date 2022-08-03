@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../models')
 // /profile
-
-// switch to id: req.session.user_id and remove id param once login is setup
 router.get('/', async (req, res)=> {
     try {
     // grabs the currently logged in user
