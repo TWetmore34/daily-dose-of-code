@@ -118,3 +118,8 @@
 .signup-btn-color {
     background-color: rgb(20, 174, 69);
    }
+
+.profile-container {
+    padding-left: 4%;
+    padding-right: 4%;
+}
