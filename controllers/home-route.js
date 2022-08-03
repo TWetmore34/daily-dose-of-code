@@ -7,20 +7,17 @@ const { loginAuth } = require('../utils/login-check');
 // leaving a note here so i remember to ask - what if we allow null on Trial.status so that when its null, we can let them know it hasnt been attempted?
 // should remove the need for the attempted categories from User
 // if yes, We make a custom hbs helper that checks the value of challenge.Trials.status => if true, return 'completed', false return 'in progress, null returm 'not attempted'
-router.get('/', async (req, res)=> {
+router.get('/', loginAuth, async (req, res)=> {
     try {
     const challengeData = await Challenge.findAll({
-        include: [{ model: Difficulty }, { model: Trial, 
+        include: [{ model: Difficulty }, { model: Trial
             // should grab only the users trials
             // leaving this commented out bc we cant log in yet
-            // where: {
-            //     user_id: req.session.user_id
-            // }
          }]
     })
 
     const challenges = await challengeData.map(user => user.get({ plain: true }))
-    console.log(req.session)
+    console.log(challenges)
     res.render('challenges', { challenges })
 }
 catch (err) {
@@ -28,7 +25,7 @@ catch (err) {
 }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', loginAuth, async (req, res) => {
     try {
         console.log(req.session)
     // finds requested challenge id
