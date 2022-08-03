@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 })
 
 // create new user
-// /api/user
+// /api/users
 router.post('/', async (req, res) => {
     try {
     const newUser = await {
