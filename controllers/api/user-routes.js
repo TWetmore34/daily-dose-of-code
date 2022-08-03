@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
         username: req.body.username,
         password: req.body.password
     }
+    console.log(newUser);  
 
     const createMe = await User.create(newUser)
     if(createMe) {
@@ -47,6 +48,8 @@ router.post('/login', async (req, res) => {
         res.status(400).json({ msg: 'Incorrect email or password' });
         return
     }
+
+    
     // if true, create session obj and login
     // false, failure msg
     const compare = await bcrypt.compare(req.body.password, userData.password);
