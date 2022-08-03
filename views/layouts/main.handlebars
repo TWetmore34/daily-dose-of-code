@@ -14,14 +14,15 @@
 <body>
     <nav>
         <a href="/home">Home</a>
-        {{#if loggedIn}}
+       
         <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
+ 
+        <a href="/">Login</a>
+
     </nav>
     <main>
         {{{body}}} 
     </main>
+    <script src="/js/logout.js"></script>
 </body>
 </html>

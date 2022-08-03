@@ -4,7 +4,7 @@ const { loggedInAuth } = require('../utils/login-check')
 
 // /
 // add loggedInAuth once login/create is set up
-router.get('/', (req, res)=> {
+router.get('/', loggedInAuth, (req, res)=> {
     try {
     res.render('login', {layout: 'main'})
     }
