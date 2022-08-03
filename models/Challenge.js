@@ -41,7 +41,6 @@ Challenge.init(
     },
 
 
-    //require sequelized already
     starting_date: {
       type: DataTypes.DATE,
       allowNull: false,
