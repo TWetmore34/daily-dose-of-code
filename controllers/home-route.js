@@ -25,7 +25,7 @@ router.get("/", loginAuth, async (req, res) => {
     const challenges = await challengeData.map((challenge) =>
       challenge.get({ plain: true })
     );
-
+    console.log(req.session);
     res.render("challenges", {
       challenges,
       loggedIn: req.session.logged_in,

@@ -54,6 +54,10 @@ User.init(
             model: 'challenge',
             key: 'id'
         }
+      },
+      streak: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
       }
     },
     {
@@ -65,9 +69,11 @@ User.init(
                 return newPass;
             },
             beforeBulkCreate: async(newUserData)=> {
-              const newPass = await bcrypt.hash(newUserData.password, 8);
-              newUserData.password = newPass;
-              return newPass;
+              for(i=0;i<newUserData.length;i++){
+                const newPass = await bcrypt.hash(newUserData[i].password, 8);
+                newUserData[i].password = newPass;
+              }
+
             },
             beforeUpdate: async(newUserData) => {
                 const newPass = await bcrypt.hash(newUserData.password, 8);
