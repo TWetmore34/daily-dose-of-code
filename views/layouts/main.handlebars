@@ -16,11 +16,12 @@
     />
     <link rel="stylesheet" href="/css/jass.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/editor-style.css">
   </head>
   <body>
     <nav>
       <a href="/home">Home</a>
-      {{#if loggedIn}}
+      {{#if logged_in}}
         <button id="logout" class="btn-no-style">Logout</button>
       {{else}}
         <a href="/login">Login</a>
