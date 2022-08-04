@@ -13,7 +13,9 @@
             <div class="challenge-title">
                 <a href="/home/{{challenge.id}}">{{challenge.title}}</a>
             </div>
-            <div class="progress">In Progress</div>
+            <div class="progress">
+                {{trialProgress challenge.Trials}}
+            </div>
         </div>
         {{/each}}
 
