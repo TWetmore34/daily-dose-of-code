@@ -23,49 +23,11 @@
 
     </div>
 
-    <div class="daily col-4">
-        <a href="#">Calender w link to new challenges up to current day</a>
-    
-    <head>
-    <meta charset="UTF-8">
+    <div class="daily col-4 pt-2">
+        <p>Choose a challenge by date <br> <input type="text" id="datepicker"></p>
+    <button id="datechoice" class="btn btn-primary">Submit</button>
 
-    <link href="css/datetimepicker.css" rel="stylesheet" type="text/css"/>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
-    
-    <script type="text/javascript" src="js/datetimepicker.js"></script>
-   
-
-    <style>
-        body{ background-color: beige; direction: ltr;}
-    </style>
-   
-   <script type="text/javascript">
-    $(document).ready( function () {
-        $('#picker').dateTimePicker();
-        $('#picker-no-time').dateTimePicker({ showTime: false, dateFormat: 'DD/MM/YYYY', title: 'Select Date'});
-    })
-    </script>
-    
-    <title>Date Time Picker</title>
-
-    </head>
-
-
-
-    <body>
-    <div style="width: 250px; margin: 50px auto;">
-      <div id="picker"></div>
-      <input type="hidden" id="result" value="" />
     </div>
-
-   
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
-    
-    </body>
-    </div>
-    
 </div>
+</div>
+<script src="/js/dateSearch.js"></script>
