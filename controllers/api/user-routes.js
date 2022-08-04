@@ -87,17 +87,42 @@ router.delete('/logout', async (req, res) => {
 });
 
 // update user
+router.put('/:id', async (req, res) => {
+    User.update(
+        {
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password,
+            attempted: req.body.attempted,
+            passed: req.body.passed
+        },
+        {
+            where: {id: req.params.id},
+            individualHooks: true,
+        },
+    )
+    .then((updatedUser) => {
+        res.json(updatedUser);
+    })
+    .catch((err)=>{
+        console.error(err);
+        res.json(err);
+    })
+})
 
 
 // delete user
-router.delete('/', async (req, res) => {
-    try {
-        await User.destroy({where: { id: req.session.user_id }})
-        res.status(200).json({ msg: 'user deleted!' })
-    }
-    catch (err) {
-        res.status(500).json(err)
-    }
+router.delete('/:id', async (req, res) => {
+    User.destroy({
+        where: { id: req.params.id}
+    })
+    .then((deletedBook)=>{
+        res.json({msg: 'Successfully deleted!'})
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.json(err);
+    })
 })
 
 module.exports = router;
