@@ -3,8 +3,6 @@ const streaksCheck = (req, res, next) => {
     let userId = req.session.user_id
     let loggedIn = req.session.logged_in
     let streak = req.session.streak || 0
-    console.log(userId)
-    console.log(loggedIn)
     // grab expiration date and current date
     const expired = req.session.cookie._expires
     const now = new Date()
@@ -34,8 +32,7 @@ const streaksCheck = (req, res, next) => {
         })
     }
 }
-console.log(req.session)
-// delete when done testing
+
 next()
 
 }
