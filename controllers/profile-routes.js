@@ -14,7 +14,10 @@ router.get('/', async (req, res)=> {
     //  serializes user data
     const user = await userData.get({ plain: true })
 
-    res.render('profile', { user })
+    res.render('profile', {
+        user,
+        loggedIn: req.session.logged_in
+     })
     }
     catch (err) {
         res.status(500).json(err)
