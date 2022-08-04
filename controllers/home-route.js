@@ -17,8 +17,12 @@ router.get('/', loginAuth, async (req, res)=> {
          }]
     })
 
-    const challenges = await challengeData.map(user => user.get({ plain: true }))
-    res.render('challenges', { challenges })
+    const challenges = await challengeData.map(challenge => challenge.get({ plain: true }))
+    console.log(challenges)
+    res.render('challenges', { 
+        challenges,
+        loggedIn: req.session.logged_in
+     })
 }
 catch (err) {
     res.status(500).json(err)
@@ -33,7 +37,10 @@ router.get('/:id', createTrial, loginAuth, async (req, res) => {
     // serializes data
     const challenge = challengeData.get({ plain: true });
 
-    res.render('trial', { challenge })
+    res.render('trial', { 
+        challenge,
+        loggedIn: req.session.logged_in,
+     })
     }
     catch (err) {
         res.status(500).json(err)

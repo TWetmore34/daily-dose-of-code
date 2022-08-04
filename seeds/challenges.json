@@ -1,0 +1,63 @@
+[
+    {
+        "title": "Two Sum",
+        "detail": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+        "difficulty_id": 1,
+        "tests": "add test cases here",
+        "date": ""
+    },
+    {
+        "title": "Add Two Numbers",
+        "detail": "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.",
+        "difficulty_id": 2,
+        "tests": "add test cases here"
+    },
+    {
+        "title": "Longest Substring Without Repeating Characters",
+        "detail": "Given a string s, find the length of the longest substring without repeating characters.",
+        "difficulty_id": 2,
+        "tests": "add test cases here"
+    },
+    {
+        "title": "Median of Two Sorted Arrays",
+        "detail": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.",
+        "difficulty_id": 3,
+        "tests": "add test cases here"
+    },
+    {
+        "title": "Longest Palindromic Substring",
+        "detail": "Given a string s, return the longest palindromic substring in s.",
+        "difficulty_id": 2,
+        "tests": "add test cases here"
+    },
+    {
+        "title": "Zigzag Conversion",
+        "detail": "The string 'PAYPALISHIRING' is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)",
+        "difficulty_id": 2,
+        "tests": "add test cases here"
+    },
+    {
+        "title": "Reverse Integer",
+        "detail": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.",
+        "difficulty_id": 2,
+        "tests": "add test cases here"
+    },
+    {
+        "title": "String to Integer (atoi)",
+        "detail": "Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function).",
+        "difficulty_id": 2,
+        "tests": "add test cases here"
+    },
+    {
+        "title": "Palindrome Number",
+        "detail": "Given an integer x, return true if x is palindrome integer.",
+        "difficulty_id": 1,
+        "tests": "add test cases here"
+    },
+    {
+        "title": "Regular Expression Matching",
+        "detail": "Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:",
+        "difficulty_id": 3,
+        "tests": "add test cases here"
+    }
+]
