@@ -6,12 +6,14 @@ const Email = require('./Email');
 
 // user will have many attempted challenges
 User.hasMany(Challenge, {
-    foreignKey: 'attempted'
+    foreignKey: 'attempted',
+    onDelete: 'CASCADE'
 });
 
 // user has many passed challenges (hopefully!)
 User.hasMany(Challenge, {
-    foreignKey: 'passed'
+    foreignKey: 'passed',
+    onDelete: 'CASCADE'
 });
 
 // challenges have one difficulty
@@ -31,12 +33,14 @@ Email.hasOne(Challenge, {
 
 // each trial belongs to one user
 Trial.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
 // users have many trials
 User.hasMany(Trial, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
 Trial.hasOne(Challenge, {

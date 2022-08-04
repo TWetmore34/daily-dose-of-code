@@ -44,7 +44,22 @@
 
         </div>
       </div>
+<div>
+      <h2>Update/Delete Account</h2>
+      <input type="username" id="usernameUpdate" class="form-control" placeholder="Username">
+      <button class="btn btn-info" id="usernameBtn" data-userId="{{user.id}}">Update</button>
+      <input type="email" id="emailUpdate" class="form-control" placeholder="Email">
+      <button class="btn btn-info" id="emailBtn" data-userId="{{user.id}}">Update</button>
+      <input type="password" id="passwordUpdate" class="form-control" placeholder="Password">
+      <button class="btn btn-info" id="passwordBtn" data-userId="{{user.id}}">Update</button>
+      <h4>Delete</h4>
+      <button class="btn btn-danger" id="deleteUser" data-userId="{{user.id}}">Delete</button>
+    </div>
 
+  </div>
+</div>
+
+<script src="/js/profile.js"></script>
     </div>
   </div>
 
