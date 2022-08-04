@@ -1,64 +1,73 @@
-<div class="display-flex flex-row header">
-  <div class="logo profile-logo">{{user.username}}'s Profile</div>
-</div>
-
-<div class="profile-container">
-  <div class="row">
-
-    <div class="col-4 profile-container">
-      <div class="profile-card">
-        <img
-          src="/imgs/head-shot.png"
-          alt="Profile Image"
-          class="profile-img"
-        />
-        <div class="profile-username">{{user.username}}</div>
-        <div class="profile-email">{{user.email}}</div>
-        <div class="profile-streak">
-          <span class="material-symbols-outlined">
-            browse_activity
-          </span>
-          <div class="icon-padding">79 Log Ins</div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="col-4 profile-container">
-      <h1>In Progress</h1>
-      <div class="vertical-menu-left">
-        <a href="#" class="active"><div class="chall-title-font">Challenge Name</div></a>
-        <a href="#">Challenge B</a>
-        <a href="#">Challenge C</a>
-        <a href="#">Challenge D</a>
-        <a href="#">Challenge E</a>
-        <a href="#">Challenge F</a>
-        <a href="#">Challenge G</a>
-        <a href="#">Challenge H</a>
-        <a href="#">Challenge I</a>
-        <a href="#">Challenge J</a>
-        <a href="#">Challenge K</a>
-        <a href="#">Challenge L</a>
-      </div>
-    </div>
-
-    <div class="col-4 profile-container">
-      <h1>Successes!</h1>
-      <div class="vertical-menu-right">
-        <a href="#" class="active"><div class="chall-title-font">Challenge Name</div></a>
-        <a href="#">Challenge B</a>
-        <a href="#">Challenge C</a>
-        <a href="#">Challenge D</a>
-        <a href="#">Challenge E</a>
-        <a href="#">Challenge F</a>
-        <a href="#">Challenge G</a>
-        <a href="#">Challenge H</a>
-        <a href="#">Challenge I</a>
-        <a href="#">Challenge J</a>
-        <a href="#">Challenge K</a>
-        <a href="#">Challenge L</a>
-      </div>
-    </div>
-
+<body class="body-bg">
+  <div class="display-flex flex-row header">
+    <div class="logo profile-logo">{{user.username}}'s Profile</div>
   </div>
-</div>
+
+  <div class="profile-container">
+    <div class="row">
+
+      <div class="col-4 profile-container">
+        <div class="profile-card">
+          <div class="pic-and-btn-container">
+            <div class="profile-pic">
+
+              <div class="display-image"></div>
+            </div>
+            <input type="file" id="image-input" accept="image/png, image/jpg" />
+          </div>
+
+          <div class="profile-username">{{user.username}}</div>
+          <div class="profile-email">{{user.email}}</div>
+          <div class="profile-streak">
+            <span class="material-symbols-outlined">
+              browse_activity
+            </span>
+            <div class="icon-padding">79 Log Ins</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-4 profile-container">
+        <h1>In Progress</h1>
+        <div class="vertical-menu-left">
+          <a href="#" class="active"><div class="chall-title-font">Challenge
+              Name</div></a>
+          <a href="#">Challenge B</a>
+          <a href="#">Challenge C</a>
+          <a href="#">Challenge D</a>
+          <a href="#">Challenge E</a>
+          <a href="#">Challenge F</a>
+          <a href="#">Challenge G</a>
+          <a href="#">Challenge H</a>
+          <a href="#">Challenge I</a>
+          <a href="#">Challenge J</a>
+          <a href="#">Challenge K</a>
+          <a href="#">Challenge L</a>
+        </div>
+      </div>
+
+      <div class="col-4 profile-container">
+        <h1>Successes!</h1>
+        <div class="vertical-menu-right">
+          <a href="#" class="active"><div class="chall-title-font">Challenge
+              Name</div></a>
+          <a href="#">Challenge B</a>
+          <a href="#">Challenge C</a>
+          <a href="#">Challenge D</a>
+          <a href="#">Challenge E</a>
+          <a href="#">Challenge F</a>
+          <a href="#">Challenge G</a>
+          <a href="#">Challenge H</a>
+          <a href="#">Challenge I</a>
+          <a href="#">Challenge J</a>
+          <a href="#">Challenge K</a>
+          <a href="#">Challenge L</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+<script src="/public/js/profile-pic.js"></script>

@@ -152,14 +152,14 @@
   margin-right: 10%;
 }
 
-.profile-img {
+/* .profile-img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
   margin: 0 auto 20px auto;
   display: block;
-}
+} */
 
 .profile-username {
   font-size: 30px;
@@ -242,4 +242,19 @@
 .chall-title-font {
   font-weight: bolder;
   font-size: larger;
+}
+
+.profile-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-image {
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
 }
