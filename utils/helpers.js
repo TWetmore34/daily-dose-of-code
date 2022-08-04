@@ -1,6 +1,6 @@
 module.exports = {
     trialProgress: (trials) => {
-        if(!trials.length) return 'Start now!'
+        if(trials.length <= 1) return 'Start now!'
         let truthy = []
         for(i=0;i<trials.length;i++){
             if (trials[i].status === true){
