@@ -119,6 +119,11 @@
   background-color: rgb(20, 174, 69);
 }
 
+.profile-logo {
+  font-size: 38px;
+  font-weight: bold;
+}
+
 .profile-container {
   /* padding-left: 4%;
   padding-right: 4%; */
