@@ -1,6 +1,33 @@
 <body class="body-bg">
-  <div class="display-flex flex-row header">
-    <div class="logo profile-logo">{{user.username}}'s Profile</div>
+<div class="display-flex flex-row header">
+  <div class="logo">{{user.username}}'s Profile</div>
+</div>
+
+<div class="profile-container">
+  <div class="row">
+
+    <div class="col-4 profile-container">
+      <div class="profile-card">
+        <img
+          src="/imgs/head-shot.png"
+          alt="Profile Image"
+          class="profile-img"
+        />
+        <div class="profile-username">{{user.username}}</div>
+        <div class="profile-email">{{user.email}}</div>
+        <div class="profile-streak">
+          <span class="material-symbols-outlined">
+            browse_activity
+          </span>Streak: {{streak}}
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-4 profile-container">Profile</div>
+
+    <div class="col-4 profile-container">Profile</div>
+
   </div>
 
   <div class="profile-container">

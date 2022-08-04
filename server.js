@@ -14,7 +14,9 @@ const sequelize = require('./config/connection')
 const sess = {
     secret: 'Super secret secret',
     // add maxAge for cookie expiration (use for streaks)
-    cookie: {},
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 //should add up to a max age of 1 day
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
