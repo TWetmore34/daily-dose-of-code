@@ -28,7 +28,6 @@ Trial.init(
     },
     status: {
       type: DataTypes.BOOLEAN,
-      allowNull: true,
     },
   },
   {
