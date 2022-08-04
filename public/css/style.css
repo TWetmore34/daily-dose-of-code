@@ -122,7 +122,7 @@
 .profile-container {
   /* padding-left: 4%;
   padding-right: 4%; */
-  border-style: solid;
+  /* border-style: solid; */
   border-width: 2px;
   border-color: gray;
 }
@@ -142,6 +142,7 @@
   border-style: solid;
   border-color: aliceblue;
   border-radius: 5px;
+  margin-top: 20%;
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -181,11 +182,11 @@
 }
 
 .vertical-menu-left {
-  width: 100%;
+  width: 90%;
   height: 70%;
   overflow-y: scroll;
   border-style: none;
-  border-radius: 8px;
+  border-radius: 8px 8px 8px 8px;
 }
 
 .vertical-menu-left a {
@@ -206,11 +207,11 @@
 }
 
 .vertical-menu-right {
-  width: 100%;
+  width: 90%;
   height: 70%;
   overflow-y: scroll;
   border-style: none;
-  border-radius: 8px;
+  border-radius: 8px 8px 8px 8px;
 }
 
 .vertical-menu-right a {
