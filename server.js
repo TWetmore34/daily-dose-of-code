@@ -15,7 +15,7 @@ const sess = {
     secret: 'Super secret secret',
     // add maxAge for cookie expiration (use for streaks)
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 //should add up to a max age of 24 hrs
+      maxAge: 1000 * 60 * 60 * 24 //should add up to a max age of 1 day
     },
     resave: false,
     saveUninitialized: true,
