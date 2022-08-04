@@ -39,22 +39,6 @@ User.init(
             len: [8]
         }
       },
-    //   stores the id's of attempted challenges
-      attemped: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'challenge',
-            key: 'id'
-        }
-      },
-    //   stores the id's of completed challenges
-      passed: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'challenge',
-            key: 'id'
-        }
-      }
     },
     {
         // hash's user passwords on creation
