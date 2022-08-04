@@ -23,9 +23,19 @@
       </div>
     </div>
 
-    <div class="col-4 profile-container">Profile</div>
-
-    <div class="col-4 profile-container">Profile</div>
-
+    <div class="col-4 profile-container">
+      <input type="username" id="usernameUpdate" class="form-control" placeholder="Username">
+      <button id="usernameBtn" data-userId="{{user.id}}">Update</button>
+      <input type="email" id="emailUpdate" class="form-control" placeholder="Email">
+      <button id="emailBtn" data-userId="{{user.id}}">Update</button>
+      <input type="password" id="passwordUpdate" class="form-control" placeholder="Password">
+      <button id="passwordBtn" data-userId="{{user.id}}">Update</button>
+      
+    </div>
+    <div class="col-4 profile-container">
+      <button id="deleteUser" data-userId="{{user.id}}">Delete</button>
+    </div>
   </div>
 </div>
+
+<script src="/js/profile.js"></script>

@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
         password: req.body.password
     }
 
-    const createMe = await User.create(newUser)
+    const createMe = User.create(newUser)
     // serialize data to grab id num
     const user = createMe.get({ plain: true });
     // grab all challenges and serialize
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
     // create session obj and send response msg
     if(createMe) {
         req.session.save(() => {
-            req.session.user_id = createMe.id
+            req.session.user_id = user.id
             req.session.logged_in = true
 
             res.status(201).json({ msg: createMe })

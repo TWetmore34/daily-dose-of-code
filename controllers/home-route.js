@@ -9,7 +9,7 @@ const streaksCheck = require('../utils/streaksCheck');
 // leaving a note here so i remember to ask - what if we allow null on Trial.status so that when its null, we can let them know it hasnt been attempted?
 // should remove the need for the attempted categories from User
 // if yes, We make a custom hbs helper that checks the value of challenge.Trials.status => if true, return 'completed', false return 'in progress, null returm 'not attempted'
-router.get('/', streaksCheck, loginAuth, async (req, res)=> {
+router.get('/', async (req, res)=> {
     try {
     const challengeData = await Challenge.findAll({
         include: [{ model: Difficulty }, { model: Trial,
