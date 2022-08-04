@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Challenge, Trial } = require('../../models');
 const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
-    let userData = await User.findAll();
+    let userData = await User.findAll({ include: { model: Trial } });
     let users = userData.map(user => user.get({ plain: true }));
 
     res.json(users)
@@ -18,9 +18,27 @@ router.post('/', async (req, res) => {
         username: req.body.username,
         password: req.body.password
     }
-    console.log(newUser);  
 
     const createMe = await User.create(newUser)
+    // serialize data to grab id num
+    const user = createMe.get({ plain: true });
+    // grab all challenges and serialize
+    const challenges = await Challenge.findAll()
+    const challengeData = await challenges.map(challenge => challenge.get({ plain: true }))
+    
+    // loop thru challengeData arr and create a Trial for the user on each trial. these are used for a null reading that will render 'start now' (see ./utils/)
+    for(i=0;i<challengeData.length;i++){
+        // status: null so that it doesnt read as true or false on the helper
+        const startTrials = {
+            user_id: user.id,
+            challenge_id: challengeData[i].id,
+            submission_detail: 'trial created',
+            status: null
+        }
+        await Trial.create(startTrials);
+    }
+
+    // create session obj and send response msg
     if(createMe) {
         req.session.save(() => {
             req.session.user_id = createMe.id
