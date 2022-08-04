@@ -1,5 +1,3 @@
-const e = require("express")
-
 const streaksCheck = (req, res, next) => {
     // grab info for when cookie resets
     let userId = req.session.user_id
@@ -8,6 +6,7 @@ const streaksCheck = (req, res, next) => {
     // grab expiration date and current date
     const expired = req.session.cookie._expires
     const now = new Date()
+    console.log(now)
     // if hasStreak hasnt been set yet this session, check if cookie is expired
     if(!req.session.hasStreak) {
     if(expired.getDate() > now.getDate() && expired.getMonth() >= now.getMonth()){
