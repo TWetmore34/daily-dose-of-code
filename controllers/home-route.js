@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Challenge, Difficulty, Trial } = require('../models')
+const { Challenge, Difficulty, Trial } = require('../models');
+const createTrial = require('../utils/createTrial');
 const { loginAuth } = require('../utils/login-check');
 
 // /home
@@ -28,7 +29,7 @@ catch (err) {
 }
 });
 
-router.get('/:id', loginAuth, async (req, res) => {
+router.get('/:id', createTrial, loginAuth, async (req, res) => {
     try {
         console.log(req.session)
     // finds requested challenge id
