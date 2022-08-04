@@ -12,14 +12,15 @@ router.get('/', async (req, res) => {
 // create new user
 // /api/users
 router.post('/', async (req, res) => {
-    try {
+    // try {
     const newUser = await {
         email: req.body.email,
         username: req.body.username,
         password: req.body.password
     }
 
-    const createMe = User.create(newUser)
+    const createMe = await User.create(newUser)
+
     // serialize data to grab id num
     const user = createMe.get({ plain: true });
     // grab all challenges and serialize
@@ -39,7 +40,7 @@ router.post('/', async (req, res) => {
     }
 
     // create session obj and send response msg
-    if(createMe) {
+    if(user) {
         req.session.save(() => {
             req.session.user_id = user.id
             req.session.logged_in = true
@@ -47,10 +48,10 @@ router.post('/', async (req, res) => {
             res.status(201).json({ msg: createMe })
         })
     }
-    }
-    catch (err) {
-        res.status(500).json(err)
-    }
+    // }
+    // catch (err) {
+    //     res.status(500).json(err)
+    // }
 });
 
 // login
