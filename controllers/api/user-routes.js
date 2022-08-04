@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Challenge, Trial } = require('../../models');
 const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
-    let userData = await User.findAll();
+    let userData = await User.findAll({ include: { model: Trial } });
     let users = userData.map(user => user.get({ plain: true }));
 
     res.json(users)
@@ -18,9 +18,27 @@ router.post('/', async (req, res) => {
         username: req.body.username,
         password: req.body.password
     }
-    console.log(newUser);  
 
     const createMe = await User.create(newUser)
+    // serialize data to grab id num
+    const user = createMe.get({ plain: true });
+    // grab all challenges and serialize
+    const challenges = await Challenge.findAll()
+    const challengeData = await challenges.map(challenge => challenge.get({ plain: true }))
+    
+    // loop thru challengeData arr and create a Trial for the user on each trial. these are used for a null reading that will render 'start now' (see ./utils/)
+    for(i=0;i<challengeData.length;i++){
+        // status: null so that it doesnt read as true or false on the helper
+        const startTrials = {
+            user_id: user.id,
+            challenge_id: challengeData[i].id,
+            submission_detail: 'trial created',
+            status: null
+        }
+        await Trial.create(startTrials);
+    }
+
+    // create session obj and send response msg
     if(createMe) {
         req.session.save(() => {
             req.session.user_id = createMe.id
@@ -39,37 +57,36 @@ router.post('/', async (req, res) => {
 // /api/users/login
 router.post('/login', async (req, res) => {
     try {
-    const userData = await User.findOne({
-        where: {
-            email: req.body.email
+        const userData = await User.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
+        if(!userData){
+            res.status(400).json({ msg: 'Incorrect email or password.' });
+            return;
         }
-    });
-    if(!userData){
-        res.status(400).json({ msg: 'Incorrect email or password' });
-        return
-    }
 
-    
-    // if true, create session obj and login
-    // false, failure msg
-    const compare = await bcrypt.compare(req.body.password, userData.password);
-    if(compare) {
-        // create session.loggedIn as true
-            req.session.save(() => {
-                req.session.user_id = userData.id
-                req.session.logged_in = true
-                res.status(200).json({ msg: 'logged in!' });
+        
+        // if false, failure msg
+        // if true, create session obj and login
+        const compare = await userData.checkPassword(req.body.password);
 
-            })
-    } else {
-        res.status(400).json({ msg: 'incorrect username or password' })
-    }
-}
-    catch (err) {
-        res.status(500).json(err)
-}
+        if(!compare) {
+            res.status(400).json({msg: 'Incorrect email or password. Please try again!'})
+            return;
+        }
+
+        req.session.save(()=>{
+            req.session.logged_in = true;
+
+            res.status(200).json({ user: userData, message: 'You are now logged in!' })
+        })        
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    };
 });
-
 // logout
 router.delete('/logout', async (req, res) => {
     try {
@@ -87,17 +104,42 @@ router.delete('/logout', async (req, res) => {
 });
 
 // update user
+router.put('/:id', async (req, res) => {
+    User.update(
+        {
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password,
+            attempted: req.body.attempted,
+            passed: req.body.passed
+        },
+        {
+            where: {id: req.params.id},
+            individualHooks: true,
+        },
+    )
+    .then((updatedUser) => {
+        res.json(updatedUser);
+    })
+    .catch((err)=>{
+        console.error(err);
+        res.json(err);
+    })
+})
 
 
 // delete user
-router.delete('/', async (req, res) => {
-    try {
-        await User.destroy({where: { id: req.session.user_id }})
-        res.status(200).json({ msg: 'user deleted!' })
-    }
-    catch (err) {
-        res.status(500).json(err)
-    }
+router.delete('/:id', async (req, res) => {
+    User.destroy({
+        where: { id: req.params.id}
+    })
+    .then((deletedBook)=>{
+        res.json({msg: 'Successfully deleted!'})
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.json(err);
+    })
 })
 
 module.exports = router;
