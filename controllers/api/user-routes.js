@@ -57,37 +57,37 @@ router.post('/', async (req, res) => {
 // /api/users/login
 router.post('/login', async (req, res) => {
     try {
-    const userData = await User.findOne({
-        where: {
-            email: req.body.email
+        const userData = await User.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
+        if(!userData){
+            res.status(400).json({ msg: 'Incorrect email or password.' });
+            return;
         }
-    });
-    if(!userData){
-        res.status(400).json({ msg: 'Incorrect email or password' });
-        return
-    }
 
-    
-    // if true, create session obj and login
-    // false, failure msg
-    const compare = await bcrypt.compare(req.body.password, userData.password);
-    if(compare) {
-        // create session.loggedIn as true
-            req.session.save(() => {
-                req.session.user_id = userData.id
-                req.session.logged_in = true
-                res.status(200).json({ msg: 'logged in!' });
+        
+        // if false, failure msg
+        // if true, create session obj and login
+        const compare = await userData.checkPassword(req.body.password);
 
-            })
-    } else {
-        res.status(400).json({ msg: 'incorrect username or password' })
-    }
-}
-    catch (err) {
-        res.status(500).json(err)
-}
+        if(!compare) {
+            res.status(400).json({msg: 'Incorrect email or password. Please try again!'})
+            return;
+        }
+
+        req.session.save(()=>{
+            req.session.logged_in = true;
+            req.session.user_id = userData.id;
+            res.status(200).json({ user: userData, message: 'You are now logged in!' })
+        })
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    };
 });
-
 // logout
 router.delete('/logout', async (req, res) => {
     try {
