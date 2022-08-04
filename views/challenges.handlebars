@@ -5,67 +5,70 @@
   </div>
 </div>
 <div class="display-flex flex-row align-stretch">
-    <div class="challeges col-8">
-        <!-- make triple brackets to render challenges -->
-        {{#each challenges as |challenge|}}
-        <div class="challenge">
-            <div class="date">Date of Challenge</div>
-            <div class="challenge-title">
-                <a href="/home/{{challenge.id}}">{{challenge.title}}</a>
-            </div>
-            <div class="progress">
-                {{trialProgress challenge.Trials}}
-            </div>
+  <div class="challeges col-8">
+    <!-- make triple brackets to render challenges -->
+    {{#each challenges as |challenge|}}
+      <div class="challenge">
+        <div class="date">Date of Challenge</div>
+        <div class="challenge-title">
+          <a href="/home/{{challenge.id}}">{{challenge.title}}</a>
         </div>
-        <div class="progress">In Progress</div>
+        <div class="progress">
+          {{trialProgress challenge.Trials}}
+        </div>
       </div>
     {{/each}}
 
-    </div>
+  </div>
 
-    <div class="daily col-4">
-        <a href="#">Calender w link to new challenges up to current day</a>
-    
+  <div class="daily col-4">
+    <a href="#">Calender w link to new challenges up to current day</a>
+
     <head>
-    <meta charset="UTF-8">
+      <meta charset="UTF-8" />
 
-    <link href="public/css/datetimepicker.css" rel="stylesheet" type="text/css"/>
+      <link
+        href="public/css/datetimepicker.css"
+        rel="stylesheet"
+        type="text/css"
+      />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
-    
-    <script type="text/javascript" src="public/js/datetimepicker.js"></script>
-   
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
 
-    <style>
+      <script type="text/javascript" src="public/js/datetimepicker.js"></script>
+
+      <style>
         body{ background-color: beige; direction: ltr;}
-    </style>
-   
-   <script type="text/javascript">
-    $(document).ready( function () {
-        $('#picker').dateTimePicker();
-        $('#picker-no-time').dateTimePicker({ showTime: false, dateFormat: 'DD/MM/YYYY', title: 'Select Date'});
-    })
-    </script>
-    
-    <title>Date Time Picker</title>
+      </style>
+
+      <script type="text/javascript">
+        $(document).ready( function () { $('#picker').dateTimePicker();
+        $('#picker-no-time').dateTimePicker({ showTime: false, dateFormat:
+        'DD/MM/YYYY', title: 'Select Date'}); })
+      </script>
+
+      <title>Date Time Picker</title>
 
     </head>
 
-
-
     <body>
-    <div style="width: 250px; margin: 50px auto;">
-      <div id="picker"></div>
-      <input type="hidden" id="result" value="" />
-    </div>
+      <div style="width: 250px; margin: 50px auto;">
+        <div id="picker"></div>
+        <input type="hidden" id="result" value="" />
+      </div>
 
-   
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
-    
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
+        integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
+        crossorigin="anonymous"
+      ></script>
+
     </body>
-    </div>
-    
+  </div>
+
 </div>
