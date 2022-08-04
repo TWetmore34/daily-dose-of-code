@@ -11,13 +11,14 @@ const { loginAuth } = require('../utils/login-check');
 router.get('/', loginAuth, async (req, res)=> {
     try {
     const challengeData = await Challenge.findAll({
-        include: [{ model: Difficulty }, { model: Trial
+        include: [{ model: Difficulty }, { model: Trial,
+            where: { user_id: req.session.user_id }
             // should grab only the users trials
             // leaving this commented out bc we cant log in yet
          }]
     })
-
     const challenges = await challengeData.map(challenge => challenge.get({ plain: true }))
+
     console.log(challenges)
     res.render('challenges', { 
         challenges,

@@ -29,8 +29,6 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector("#emailAddressSignup").value.trim();
   const password = document.querySelector("#passwordSignup").value.trim();
 
-  console.log(username);
-
   if (username && email && password) {
     const response = await fetch("/api/users/", {
       method: "POST",
@@ -39,7 +37,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/home");
+      document.location.replace("/profile");
       console.log();
     } else {
       alert(response.statusText);
