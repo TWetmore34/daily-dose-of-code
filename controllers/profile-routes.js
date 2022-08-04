@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../models')
 // /profile
 router.get('/', async (req, res)=> {
-    // try {
+    try {
     // grabs the currently logged in user
     console.log(req.session)
     const userData = await User.findOne({ 
@@ -20,10 +20,10 @@ router.get('/', async (req, res)=> {
         loggedIn: req.session.logged_in,
         streak: req.session.streak || 0
      })
-    // }
-    // catch (err) {
-    //     res.status(500).json(err)
-    // }
+    }
+    catch (err) {
+        res.status(500).json(err)
+    }
 })
 
 module.exports = router;
