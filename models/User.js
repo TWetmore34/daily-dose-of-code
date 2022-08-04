@@ -54,6 +54,10 @@ User.init(
             model: 'challenge',
             key: 'id'
         }
+      },
+      streak: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
       }
     },
     {
