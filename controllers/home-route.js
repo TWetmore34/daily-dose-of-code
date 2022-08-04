@@ -11,6 +11,7 @@ const streaksCheck = require('../utils/streaksCheck');
 // if yes, We make a custom hbs helper that checks the value of challenge.Trials.status => if true, return 'completed', false return 'in progress, null returm 'not attempted'
 router.get('/', async (req, res)=> {
     try {
+        const now = new Date().getDate()
     const challengeData = await Challenge.findAll({
         include: [{ model: Difficulty }, { model: Trial,
             where: { user_id: req.session.user_id }
@@ -19,7 +20,6 @@ router.get('/', async (req, res)=> {
          }]
     })
     const challenges = await challengeData.map(challenge => challenge.get({ plain: true }))
-    console.log(req.session)
     res.render('challenges', { 
         challenges,
         loggedIn: req.session.logged_in
