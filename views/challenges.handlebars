@@ -1,6 +1,8 @@
 <div class="display-flex flex-row header">
     <div class="logo">Logo</div>
-    <div class="profile">Profile</div>
+    <div class="profile">
+        <a href="/profile">Profile</a>
+        </div>
 </div>
 <div class="display-flex flex-row align-stretch">
     <div class="challeges col-8">
@@ -11,7 +13,9 @@
             <div class="challenge-title">
                 <a href="/home/{{challenge.id}}">{{challenge.title}}</a>
             </div>
-            <div class="progress">In Progress</div>
+            <div class="progress">
+                {{trialProgress challenge.Trials}}
+            </div>
         </div>
         {{/each}}
 

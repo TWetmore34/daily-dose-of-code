@@ -21,7 +21,7 @@ Trial.init(
         }, 
         challenge_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true
         },
         submission_detail: {
             type: DataTypes.STRING,
@@ -29,7 +29,7 @@ Trial.init(
         }, 
         status: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: true
         }
     }, 
     {

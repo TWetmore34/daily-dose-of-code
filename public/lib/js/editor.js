@@ -1,16 +1,37 @@
 // Copied from https://github.com/luvuong-le/code-editor-tutorial/blob/configuring-ace/lib/js/editor.js
 
 // Retrieve Elements
+const consoleLogList = document.querySelector('.editor__console-logs');
 const executeCodeBtn = document.querySelector('.editor__run');
 const resetCodeBtn = document.querySelector('.editor__reset');
-// const consoleBox = document.querySelector('#console');
 
 // Setup Ace
 let codeEditor = ace.edit("editorCode");
-let defaultCode = '';
-let result = ace.edit("console")
+let defaultCode = 'console.log("Hello World!")';
+let consoleMessages = [];
 
 let editorLib = {
+    clearConsoleScreen() {
+        consoleMessages.length = 0;
+
+        // Remove all elements in the log list
+        while (consoleLogList.firstChild) {
+            consoleLogList.removeChild(consoleLogList.firstChild);
+        }
+    },
+    printToConsole() {
+        consoleMessages.forEach(log => {
+            const newLogItem = document.createElement('li');
+            const newLogText = document.createElement('pre');
+
+            newLogText.className = log.class;
+            newLogText.textContent = `> ${log.message}`;
+
+            newLogItem.appendChild(newLogText);
+
+            consoleLogList.appendChild(newLogItem);
+        })
+    },
     init() {
         // Configure Ace
 
@@ -35,23 +56,29 @@ let editorLib = {
 
 // Events
 executeCodeBtn.addEventListener('click', () => {
+    // Clear console messages
+    editorLib.clearConsoleScreen();
+    
     // Get input from the code editor
     const userCode = codeEditor.getValue();
 
     // Run the user code
     try {
-        // Display result in the browser console
-        let result2 = new Function(userCode)();
-        result.setValue(result2);
-        // result.setValue(resetCodeBtn);
+        new Function(userCode)();
     } catch (err) {
         console.error(err);
     }
+
+    // Print to the console
+    editorLib.printToConsole();
 });
 
 resetCodeBtn.addEventListener('click', () => {
     // Clear ace editor
     codeEditor.setValue(defaultCode);
+
+    // Clear console messages
+    editorLib.clearConsoleScreen();
 })
 
 editorLib.init();
