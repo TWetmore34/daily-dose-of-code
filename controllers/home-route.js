@@ -12,18 +12,19 @@ const streaksCheck = require('../utils/streaksCheck');
 router.get('/', async (req, res)=> {
     try {
         const now = new Date().getDate()
-    const challengeData = await Challenge.findAll({
+        // find challenges where the user has a trial
+        const challengeData = await Challenge.findAll({
         include: [{ model: Difficulty }, { model: Trial,
             where: { user_id: req.session.user_id }
-            // should grab only the users trials
-            // leaving this commented out bc we cant log in yet
          }]
     })
     const challenges = []
     // to display all, change now to challengedata.length
+    // loop thru up to the current date's challenge
     for(i=0;i<now;i++){
         challenges.push(challengeData[i].get({ plain: true }))
     }
+    // render challenges.handlebars
     res.render('challenges', { 
         challenges,
         loggedIn: req.session.logged_in

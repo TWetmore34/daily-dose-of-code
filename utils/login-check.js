@@ -6,12 +6,5 @@ const loginAuth = (req, res, next) => {
     }
 };
 
-const loggedInAuth = (req, res, next) => {
-    if(req.session.logged_in){
-        res.redirect('/home')
-    } else {
-        next();
-    }
-}
 
-module.exports = { loginAuth, loggedInAuth };
+module.exports = { loginAuth };

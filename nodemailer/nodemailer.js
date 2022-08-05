@@ -26,7 +26,8 @@ async function main() {
   }
 
 //   gets challenge info for email template
-  let challenges = await Challenge.findByPk(1) // eventually, well add a where clause to this that searches by today's date
+  let now = new Date().getDate()
+  let challenges = await Challenge.findByPk(now) 
   let challenge = challenges.get({ plain: true })
   let difficulty = ''
   if(challenge.difficulty_id === 1){
