@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 // create new user
 // /api/users
 router.post('/', async (req, res) => {
-    // try {
+    try {
     const newUser = await {
         email: req.body.email,
         username: req.body.username,
@@ -48,10 +48,10 @@ router.post('/', async (req, res) => {
             res.status(201).json({ msg: createMe })
         })
     }
-    // }
-    // catch (err) {
-    //     res.status(500).json(err)
-    // }
+    }
+    catch (err) {
+        res.status(500).json(err)
+    }
 });
 
 // login

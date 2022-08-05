@@ -46,14 +46,6 @@ Challenge.init(
       defaultValue: DataTypes.NOW,
     },
 
-    
-
-    ending_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-
  },
 
   {
