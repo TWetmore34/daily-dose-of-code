@@ -19,7 +19,11 @@ router.get('/', async (req, res)=> {
             // leaving this commented out bc we cant log in yet
          }]
     })
-    const challenges = await challengeData.map(challenge => challenge.get({ plain: true }))
+    const challenges = []
+    // to display all, change now to challengedata.length
+    for(i=0;i<now;i++){
+        challenges.push(challengeData[i].get({ plain: true }))
+    }
     res.render('challenges', { 
         challenges,
         loggedIn: req.session.logged_in
