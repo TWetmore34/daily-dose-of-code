@@ -9,30 +9,30 @@ const streaksCheck = require("../utils/streaksCheck");
 // leaving a note here so i remember to ask - what if we allow null on Trial.status so that when its null, we can let them know it hasnt been attempted?
 // should remove the need for the attempted categories from User
 // if yes, We make a custom hbs helper that checks the value of challenge.Trials.status => if true, return 'completed', false return 'in progress, null returm 'not attempted'
-router.get("/", async (req, res) => {
-  try {
-    const challengeData = await Challenge.findAll({
-      include: [
-        { model: Difficulty },
-        {
-          model: Trial,
-          where: { user_id: req.session.user_id },
-          // should grab only the users trials
-          // leaving this commented out bc we cant log in yet
-        },
-      ],
-    });
-    const challenges = await challengeData.map((challenge) =>
-      challenge.get({ plain: true })
-    );
-    console.log(req.session);
-    res.render("challenges", {
-      challenges,
-      loggedIn: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get('/', async (req, res)=> {
+    try {
+        const now = new Date().getDate()
+        // find challenges where the user has a trial
+        const challengeData = await Challenge.findAll({
+        include: [{ model: Difficulty }, { model: Trial,
+            where: { user_id: req.session.user_id }
+         }]
+    })
+    const challenges = []
+    // to display all, change now to challengedata.length
+    // loop thru up to the current date's challenge
+    for(i=0;i<now;i++){
+        challenges.push(challengeData[i].get({ plain: true }))
+    }
+    // render challenges.handlebars
+    res.render('challenges', { 
+        challenges,
+        loggedIn: req.session.logged_in
+     })
+}
+catch (err) {
+    res.status(500).json(err)
+}
 });
 
 router.get("/:id", createTrial, loginAuth, async (req, res) => {
