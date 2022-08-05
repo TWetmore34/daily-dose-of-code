@@ -1,6 +1,8 @@
+// initialize express and grab routes folder
 const express = require('express');
 const routes = require('./controllers');
 const path = require('path');
+// import sessions and handlebars
 const session = require('express-session');
 const handlebars = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -9,8 +11,10 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// db login
 const sequelize = require('./config/connection')
 
+// init session obj
 const sess = {
     secret: 'Super secret secret',
     // add maxAge for cookie expiration (use for streaks)
