@@ -1,34 +1,52 @@
-<div class="display-flex flex-row header">
-  <div class="logo">{{user.username}}'s Profile</div>
-</div>
+<body class="body-bg">
+  <div class="display-flex flex-row header">
+    <div class="logo profile-title">{{user.username}}'s Profile</div>
+  </div>
 
-<div class="profile-container">
-  <div class="row">
+  <div class="profile-container">
+    <div class="row">
 
-    <div class="col-4 profile-container">
-      <div class="profile-card">
-        <img
-          src="/imgs/head-shot.png"
-          alt="Profile Image"
-          class="profile-img"
-        />
-        <div class="profile-username">{{user.username}}</div>
-        <div class="profile-email">{{user.email}}</div>
-        <div class="profile-streak">
-          <span class="material-symbols-outlined">
-            browse_activity
-          </span>Streak: {{streak}}
+      <div class="col-4 profile-container">
+        <div class="profile-card">
+          <img
+            src="/imgs/head-shot.png"
+            alt="Profile Image"
+            class="profile-img"
+          />
+          <div class="profile-username">{{user.username}}</div>
+          <div class="profile-email">{{user.email}}</div>
+          <div class="profile-streak">
+            <span class="material-symbols-outlined">
+              browse_activity
+            </span>Streak:
+            {{streak}}
+          </div>
+
         </div>
-
       </div>
-    </div>
 
-    <div class="col-4 profile-container">
-      
-    </div>
-    <div class="col-4 profile-container">
-    </div>
-    <div>
+      <div class="col-4 profile-container">
+        <h1>In Progress</h1>
+        <div class="vertical-menu-left">
+          <a href="#" class="active"><div class="chall-title-font">Challenges
+            </div></a>
+            {{#each inProgressTrials}}
+              <a href="#">Challenge number {{this.challenge_id}}</a>
+            {{/each}}
+
+        </div>
+      </div>
+
+      <div class="col-4 profile-container">
+        <h1>Successes!</h1>
+        <div class="vertical-menu-right">
+          <a href="#" class="active"><div class="chall-title-font">Challenges
+            </div></a>
+          <a href="#">Challenge</a>
+
+        </div>
+      </div>
+<div>
       <h2>Update/Delete Account</h2>
       <input type="username" id="usernameUpdate" class="form-control" placeholder="Username">
       <button class="btn btn-info" id="usernameBtn" data-userId="{{user.id}}">Update</button>
@@ -44,3 +62,7 @@
 </div>
 
 <script src="/js/profile.js"></script>
+    </div>
+  </div>
+
+</body>
