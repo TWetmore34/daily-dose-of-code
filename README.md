@@ -33,6 +33,6 @@
   ## Screenshots
   ![Login Screenshot](./public/imgs/login-page.png)
   ![Homepage Screenshot](/public/imgs/homepage.png) 
-  ![Profile Screenshot]()
+  ![Profile Screenshot](/public/imgs/profile-page.png)
 
  
