@@ -5,9 +5,9 @@
   </div>
 </div>
 <div class="display-flex flex-row align-stretch">
-    <div class="challeges col-8">
-        <!-- make triple brackets to render challenges -->
         {{#each challenges as |challenge|}}
+      <div class="challeges col-8">
+        <!-- make triple brackets to render challenges -->
         <div class="challenge">
             <div class="date">6/{{challenge.id}}/22</div>
             <div class="challenge-title">
@@ -22,6 +22,8 @@
 
 
   <div class="daily col-4 py-3">
+    <div class="daily col-12 pt-2">
+
       <p>Choose a challenge by date
         <br />
         <input type="text" id="datepicker" /></p>

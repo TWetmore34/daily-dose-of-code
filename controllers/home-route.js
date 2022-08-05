@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const { Challenge, Difficulty, Trial } = require("../models");
-const createTrial = require("../utils/createTrial");
-const { loginAuth } = require("../utils/login-check");
-const streaksCheck = require("../utils/streaksCheck");
+const router = require('express').Router();
+const { Challenge, Difficulty, Trial } = require('../models');
+const createTrial = require('../utils/createTrial');
+const { loginAuth } = require('../utils/login-check');
+const streaksCheck = require('../utils/streaksCheck');
 
 // /home
 // add loginauth to this once login request is set
@@ -21,10 +21,10 @@ router.get('/', async (req, res)=> {
     const challenges = []
     // to display all, change now to challengedata.length
     // loop thru up to the current date's challenge
-    for(i=0;i<now;i++){
+    for(i=0;i<challengeData.length;i++){
         challenges.push(challengeData[i].get({ plain: true }))
     }
-    // render challenges.handlebars
+    // render challenges 
     res.render('challenges', { 
         challenges,
         loggedIn: req.session.logged_in
@@ -35,21 +35,22 @@ catch (err) {
 }
 });
 
-router.get("/:id", createTrial, loginAuth, async (req, res) => {
-  try {
-    console.log(req.session);
+router.get('/:id', createTrial, loginAuth, async (req, res) => {
+    try {
+        console.log(req.session)
     // finds requested challenge id
     const challengeData = await Challenge.findByPk(req.params.id);
     // serializes data
     const challenge = challengeData.get({ plain: true });
 
-    res.render("trial", {
-      challenge,
-      loggedIn: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+    res.render('trial', { 
+        challenge,
+        loggedIn: req.session.logged_in,
+     })
+    }
+    catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 module.exports = router;
