@@ -1,26 +1,30 @@
-{{!-- set up the handlebars file to make sure id request was working as intended --}}
+{{! set up the handlebars file to make sure id request was working as intended }}
 <h1>{{challenge.title}}</h1>
 <p>{{challenge.detail}}</p>
 <div class="editor">
-    <div class="editor__wrapper">
-        <div class="editor__body">
-            <div id="editorCode" class="editor__code"></div>
-        </div>
-        <div class="editor__footer">
-            <div class="editor__footer--left">
-                <button class="editor__btn editor__run">Run ></button>
-                <button class="editor__btn editor__reset">Reset ></button>
-            </div>
-            <div class="editor__footer--right">
-                <div class="editor__console">
-                    <ul class="editor__console-logs"></ul>
-                </div>
-            </div>
-        </div>
+  <div class="editor__wrapper">
+    <div class="editor__body">
+      <div id="editorCode" class="editor__code"></div>
     </div>
+    <div class="editor__footer">
+      <div class="editor__footer--left">
+        <button class="editor__btn editor__run">Run ></button>
+        <button class="editor__btn editor__reset">Reset ></button>
+      </div>
+      <div class="editor__footer--right">
+        <div class="editor__console">
+          <ul class="editor__console-logs"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div>
-    <button id="submit-trial" class="btn btn-primary d-block mx-auto" data-challengeId="{{challenge.id}}">Submit</button>
+  <button
+    id="submit-trial"
+    class="btn btn-primary d-block mx-auto"
+    data-challengeId="{{challenge.id}}"
+  >Submit</button>
 </div>
 <script src="/js/submitTrueTrial.js"></script>
 <script src="/lib/ace-editor/src-min/ace.js"></script>
