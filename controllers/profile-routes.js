@@ -26,6 +26,7 @@ router.get("/", async (req, res) => {
     res.render("profile", {
       user,
       inProgressTrials,
+      successfulTrials,
       loggedIn: req.session.logged_in,
       streak: req.session.streak || 0,
     });

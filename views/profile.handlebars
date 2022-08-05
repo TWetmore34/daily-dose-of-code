@@ -42,7 +42,9 @@
         <div class="vertical-menu-right">
           <a href="#" class="active"><div class="chall-title-font">Challenges
             </div></a>
-          <a href="#">Challenge</a>
+            {{#each successfulTrials}}
+              <a href="#">Challenge number {{this.challenge_id}}</a>
+            {{/each}}
 
         </div>
       </div>
